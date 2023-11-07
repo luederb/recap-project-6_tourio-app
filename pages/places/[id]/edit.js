@@ -15,7 +15,7 @@ export default function EditPage() {
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   async function editPlace(place) {
-    const response = await fetch(`/api/places`, {
+    const response = await fetch(`/api/places/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

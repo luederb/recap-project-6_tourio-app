@@ -53,7 +53,8 @@ export default function Card({ name, image, location, id }) {
             sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-            alt=""
+            alt={`Picture of ${name}`}
+            priority={true}
           />
         </ImageContainer>
         <figcaption>{name}</figcaption>

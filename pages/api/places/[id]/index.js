@@ -11,10 +11,9 @@ export default async function handler(request, response) {
     if (!place) {
       return response.status(404).json({ status: "Not Found" });
     }
-
     response.status(200).json(place);
   }
-  // Patch request:
+  // PATCH request:
   if (request.method === "PATCH") {
     const place = await Place.findByIdAndUpdate(id, {
       $set: request.body,
@@ -25,4 +24,9 @@ export default async function handler(request, response) {
 
     response.status(200).json({ status: `Place ${id} updated!` });
   }
+  // DELETE request:
+  if (request.method === "DELETE") {
+    await Place.findByIdAndDelete(id);
+    response.status(200).json({ status: `Place ${id} successfully deleted.` });
+  } else return response.status(405).json({ message: "Method not allowed" });
 }
