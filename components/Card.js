@@ -60,7 +60,7 @@ export default function Card({ name, image, location, id }) {
         <figcaption>{name}</figcaption>
       </Figure>
       <p>Location: {location}</p>
-      <Link href={`places/${id}`} passHref legacyBehavior>
+      <Link href={`places/${id}`}>
         <Anchor>
           <ScreenReaderOnly>More Info</ScreenReaderOnly>
         </Anchor>
