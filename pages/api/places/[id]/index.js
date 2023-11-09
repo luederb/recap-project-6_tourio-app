@@ -16,10 +16,7 @@ export default async function handler(request, response) {
     } catch (error) {
       response.status(500).json({ status: "Internal Server Error" });
     }
-  }
-
-  // PATCH request:
-  if (request.method === "PATCH") {
+  } else if (request.method === "PATCH") {
     try {
       const place = await Place.findByIdAndUpdate(id, {
         $set: request.body,
@@ -32,10 +29,7 @@ export default async function handler(request, response) {
     } catch (error) {
       response.status(500).json({ status: "Internal Server Error" });
     }
-  }
-
-  // DELETE request:
-  if (request.method === "DELETE") {
+  } else if (request.method === "DELETE") {
     try {
       await Place.findByIdAndDelete(id);
       response
